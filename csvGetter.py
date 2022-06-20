@@ -54,7 +54,7 @@ print(numberOfMovie)
 embeddingList = ['none'] * (numberOfMovie)
 for i in range(numberOfMovie):
     print(i)
-    embeddingList[i] = ' '.join(str(e) for e in mean_pooled[i])
+    embeddingList[i + 500] = ' '.join(str(e) for e in mean_pooled[i])
 
-df_movie['embedding'][500:1000]= embeddingList
+df_movie[500:1000]['embedding']= embeddingList
 df_movie.to_csv('embedding.csv',  encoding='utf-8')

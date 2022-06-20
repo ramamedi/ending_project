@@ -3,7 +3,7 @@ from transformers import AutoTokenizer, AutoModel
 # from sklearn.metrics.pairwise import cosine_similarity
 import torch
 
-df_movie = pd.read_csv('netflix_movie.csv')[0:500]
+df_movie = pd.read_csv('netflix_movie.csv')[500:1000]
 df_movie = df_movie[df_movie['type'] == 'Movie']
 # df_movie.describe(include='all')
 print(len(df_movie))
@@ -56,5 +56,5 @@ for i in range(numberOfMovie):
     print(i)
     embeddingList[i] = ' '.join(str(e) for e in mean_pooled[i])
 
-df_movie['embedding']= embeddingList
+df_movie['embedding'][500:1000]= embeddingList
 df_movie.to_csv('embedding.csv',  encoding='utf-8')
